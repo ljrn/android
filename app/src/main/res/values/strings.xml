@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">VUE LISTE</string>
+    <string name="previous">VUE GENERALE</string>
+
+    <string name="assistance">Assistance / Suivi  TP</string>
+    <string name="lbl_login">Login :</string>
+    <string name="no_salle">Distanciel</string>
+    <string name="hint_login">login</string>
+    <string name="url_base">https://gitlab.univ-lille.fr/</string>
+    <string name="lbl_git">URL du dépôt</string>
+    <string name="lbl_done">Fait</string>
+    <string name="fini">** FINI **</string>
+    <string-array
+        name="list_questions">
+        <item>Q 1.1</item>
+        <item>Q 1.2</item>
+        <item>Q 2.1</item>
+        <item>Q 2.2</item>
+        <item>Q 2.3</item>
+        <item>Q 3.1</item>
+        <item>Q 3.2</item>
+        <item>Q 3.3</item>
+        <item>Q 4.1</item>
+        <item>Q 4.2</item>
+        <item>Q 4.3</item>
+        <item>Q 4.4</item>
+    </string-array>
+    <string-array
+        name="list_salles">
+        <item>@string/no_salle</item>
+        <item>Ayou (4A02)</item>
+        <item>Bouleau (4A04)</item>
+        <item>Meleze (4A08)</item>
+        <item>Teck (4A10)</item>
+        <item>Baobab (4A12)</item>
+        <item>Acajou (4A14)</item>
+        <item>Epicea (4A18)</item>
+        <item>Hevea (4A20)</item>
+        <item>Saule (4A24)</item>
+        <item>If (4A39)</item>
+        <item>Sequoya (4A43)</item>
+    </string-array>
+    <string-array name="list_postes">
+        <item>01</item>
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+    </string-array>
+</resources>

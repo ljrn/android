@@ -9,11 +9,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class VueListe extends Fragment /* TODO Q7 */ {
 
     private SuiviViewModel model;
-    // TODO Q6
+    private SuiviAdapter adapter;
     
     @Override
     public View onCreateView(
@@ -30,7 +32,10 @@ public class VueListe extends Fragment /* TODO Q7 */ {
                 .navigate(R.id.liste_to_generale));
 
         model = new ViewModelProvider(requireActivity()).get(SuiviViewModel.class);
-        // TODO Q6.b
+        RecyclerView questionsList = getActivity().findViewById(R.id.rvQuestions);
+        questionsList.setLayoutManager(new LinearLayoutManager(getActivity()));
+        adapter = new SuiviAdapter(model);
+        questionsList.setAdapter(adapter);
         // TODO Q7
         // TODO Q8
     }

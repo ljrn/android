@@ -7,11 +7,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 public class VueListe extends Fragment /* TODO Q7 */ {
 
-    // TODO Q2c
+    private SuiviViewModel model;
     // TODO Q6
     
     @Override
@@ -28,7 +29,7 @@ public class VueListe extends Fragment /* TODO Q7 */ {
         view.findViewById(R.id.btnToGenerale).setOnClickListener(view1 -> NavHostFragment.findNavController(VueListe.this)
                 .navigate(R.id.liste_to_generale));
 
-        // TODO Q2c
+        model = new ViewModelProvider(requireActivity()).get(SuiviViewModel.class);
         // TODO Q6.b
         // TODO Q7
         // TODO Q8

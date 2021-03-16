@@ -4,15 +4,20 @@ import android.app.Application;
 import android.content.Context;
 import android.widget.Toast;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.lifecycle.Observer;
 
 public class SuiviViewModel extends AndroidViewModel {
 
     private MutableLiveData<String> liveLocalisation;
     private MutableLiveData<String> liveUsername;
-    // TODO Q2.a
+    private MutableLiveData<Integer> liveNextQuestion;
+    private String[] questions;
 
     public SuiviViewModel(Application application) {
         super(application);
@@ -48,6 +53,35 @@ public class SuiviViewModel extends AndroidViewModel {
     public String getLocalisation() {
         return liveLocalisation.getValue();
     }
-    
-    // TODO Q2.a
+
+    public MutableLiveData<Integer> getLiveNextQuestion() {
+        return liveNextQuestion;
+    }
+
+    public void setLiveNextQuestion(Integer positionQuestion) {
+        this.liveNextQuestion.setValue(positionQuestion);
+        Context context = getApplication().getApplicationContext();
+        Toast toast = Toast.makeText(context, "NextQuestion : " + positionQuestion, Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    public Integer getNextQuestion(){
+        return this.liveNextQuestion.getValue();
+    }
+    public String getQuestions(int position) {
+        return questions[position];
+    }
+
+    public void setQuestions(String[] questions) {
+        this.questions = questions;
+    }
+
+    public void initQuestions(Context context){
+        this.questions=context.getResources().getStringArray(0);
+    }
+
+    @MainThread
+    public void observeSelection(@NonNull LifecycleOwner owner, @NonNull Observer<? super Integer> observer) {
+        getLiveNextQuestion().observe(owner, observer);
+    }
 }

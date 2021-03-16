@@ -1,6 +1,8 @@
 package fr.ulille.iutinfo.teletp;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,9 @@ import androidx.navigation.fragment.NavHostFragment;
 public class VueGenerale extends Fragment {
 
     // TODO Q1
+    String DISTANCIEL= this.getContext().getResources().getStringArray(0)[0];
+    String poste="";
+    String salle;
     // TODO Q2.c
 
     @Override
@@ -20,13 +25,13 @@ public class VueGenerale extends Fragment {
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
+        Log.d("toto" ,DISTANCIEL);
         return inflater.inflate(R.layout.vue_generale, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        // TODO Q1
+        salle=DISTANCIEL;
         // TODO Q2.c
         // TODO Q4
 

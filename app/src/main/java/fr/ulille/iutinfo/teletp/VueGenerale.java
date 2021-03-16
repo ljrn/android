@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -42,13 +43,26 @@ public class VueGenerale extends Fragment implements Observer<Integer> {
         spSalle.setAdapter(adapter);
         ArrayAdapter<CharSequence> adapterPoste=ArrayAdapter.createFromResource(this.getActivity().getApplicationContext(),R.array.list_postes,android.R.layout.simple_spinner_item);
         spPoste.setAdapter(adapterPoste);
+        spSalle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view,
+                                       int position, long id) {
+                    update();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                // TODO Auto-generated method stub
+
+            }
+        });
         view.findViewById(R.id.btnToListe).setOnClickListener(view1 -> {
             TextView tvLogin=(TextView) view.findViewById(R.id.tvLogin);
             model.setUsername(tvLogin.getText().toString());
             NavHostFragment.findNavController(VueGenerale.this).navigate(R.id.generale_to_liste);
         });
-
-        // TODO Q5.b
+        update();
         // TODO Q9
     }
 
@@ -57,6 +71,18 @@ public class VueGenerale extends Fragment implements Observer<Integer> {
 
     }
 
-    // TODO Q5.a
-    // TODO Q9
+    private void update() {
+        Spinner spSalle=getActivity().findViewById(R.id.spSalle);
+        Spinner spPoste=getActivity().findViewById(R.id.spPoste);
+
+        if(spSalle.getSelectedItem().toString().equals("Distanciel")){
+            spPoste.setVisibility(View.INVISIBLE);
+            spPoste.setEnabled(false);
+            model.setLocalisation("Distanciel");
+        }else {
+            spPoste.setVisibility(View.VISIBLE);
+            spPoste.setEnabled(true);
+            model.setLocalisation(spSalle.getSelectedItem().toString()+" : "+spPoste.getSelectedItem().toString());
+        }
+    }    // TODO Q9
 }

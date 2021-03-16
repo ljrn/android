@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -34,8 +36,12 @@ public class VueGenerale extends Fragment implements Observer<Integer> {
         DISTANCIEL= this.getActivity().getResources().getStringArray(R.array.list_salles)[0];
         salle=DISTANCIEL;
         model = new ViewModelProvider(requireActivity()).get(SuiviViewModel.class);
-        // TODO Q4
-
+        Spinner spSalle=(Spinner)view.findViewById(R.id.spSalle);
+        Spinner spPoste=(Spinner)view.findViewById(R.id.spPoste);
+        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this.getActivity().getApplicationContext(),R.array.list_salles,android.R.layout.simple_spinner_item);
+        spSalle.setAdapter(adapter);
+        ArrayAdapter<CharSequence> adapterPoste=ArrayAdapter.createFromResource(this.getActivity().getApplicationContext(),R.array.list_postes,android.R.layout.simple_spinner_item);
+        spPoste.setAdapter(adapterPoste);
         view.findViewById(R.id.btnToListe).setOnClickListener(view1 -> {
             TextView tvLogin=(TextView) view.findViewById(R.id.tvLogin);
             model.setUsername(tvLogin.getText().toString());

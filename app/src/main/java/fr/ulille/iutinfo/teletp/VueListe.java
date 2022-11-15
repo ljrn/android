@@ -13,7 +13,6 @@ import androidx.navigation.fragment.NavHostFragment;
 public class VueListe extends Fragment /* TODO Q7 */ {
 
     private SuiviViewModel model;
-    // TODO Q6
     
     @Override
     public View onCreateView(
@@ -30,8 +29,5 @@ public class VueListe extends Fragment /* TODO Q7 */ {
                 .navigate(R.id.liste_to_generale));
 
         model = new ViewModelProvider(requireActivity()).get(SuiviViewModel.class);
-        // TODO Q6.b
-        // TODO Q7
-        // TODO Q8
     }
 }

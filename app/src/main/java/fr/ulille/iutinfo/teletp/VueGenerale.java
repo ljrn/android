@@ -34,23 +34,16 @@ public class VueGenerale extends Fragment implements Observer<Integer> {
         DISTANCIEL= this.getActivity().getResources().getStringArray(R.array.list_salles)[0];
         salle=DISTANCIEL;
         model = new ViewModelProvider(requireActivity()).get(SuiviViewModel.class);
-        // TODO Q4
 
         view.findViewById(R.id.btnToListe).setOnClickListener(view1 -> {
             TextView tvLogin=(TextView) view.findViewById(R.id.tvLogin);
             model.setUsername(tvLogin.getText().toString());
             NavHostFragment.findNavController(VueGenerale.this).navigate(R.id.generale_to_liste);
         });
-
-        // TODO Q5.b
-        // TODO Q9
     }
 
     @Override
     public void onChanged(Integer integer) {
 
     }
-
-    // TODO Q5.a
-    // TODO Q9
 }
